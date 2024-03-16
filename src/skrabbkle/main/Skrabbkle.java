@@ -37,6 +37,8 @@ public class Skrabbkle {
      * print the spaces between the dash lines
      */
     private void printSpace() {
-
+        for (int i = 0; i < 19; i++) {
+            System.out.print(" ");
+        }
     }
 }
