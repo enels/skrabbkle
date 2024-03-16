@@ -24,10 +24,18 @@ public class Skrabbkle {
         } // end of for loop
     }
 
+    /**
+     * print the dash lines
+     */
     private void printDash() {
-
+        for (int i = 0; i < 12; i++) {
+            System.out.print("=");
+        }
     }
 
+    /**
+     * print the spaces between the dash lines
+     */
     private void printSpace() {
 
     }
