@@ -113,6 +113,29 @@ public class Board {
     }
 
     /**
+     * Store words from wordlist.txt into an array
+     * @throws Exception for file not found, or damaged file, or
+     * any errors that arises from inability to read file
+     */
+    private void storeWordListInArray() throws Exception {
+        String wordListPath = "resources/wordlist.txt";
+
+        FileReader wordListFile = new FileReader(wordListPath);
+        BufferedReader br = new BufferedReader(wordListFile);
+
+        String word;
+
+        while ((word = br.readLine()) != null) {
+
+            for (String wordListWord : wordList) {
+
+                wordList.add(word);
+            }
+        }
+
+    }
+
+    /**
      * checks if current position choosen by computer or human player is free
      * @param position - position choosen
      * @return true if free, false otherwise
