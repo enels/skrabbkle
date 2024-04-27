@@ -120,4 +120,33 @@ public class TileBag {
     public int countTilesInTilesBag(){
         return tiles.size();
     }
+
+    /**
+     * Remove the played tile from tiles bag
+     * @param wordPlayed the word that was played
+     * @return the score of the current player
+     */
+    protected int removePlayedTilesFromTilesBag(String wordPlayed) {
+
+        int score = 0;
+
+        for (Map.Entry<String, Integer> entry : tileBag.entrySet()) {
+
+            // iterate through each character of the played word
+            for ( int i = 0; i < wordPlayed.length(); i++ ) {
+
+                // remove the charcter tiles by one
+                if ( entry.getKey().charAt(1) == wordPlayed.charAt(i) ) {
+
+                    // calculate the score
+                    // get tile score
+                    score += entry.getKey().charAt(2);
+                    //this.reduceTilesByOne(entry.getKey());
+                }
+            }
+
+        }
+
+        return score;
+    }
 }
