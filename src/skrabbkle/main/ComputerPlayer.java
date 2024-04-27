@@ -67,4 +67,15 @@ public class ComputerPlayer extends Player {
         this.tilesRack = new TileRack();
 
     }
+
+    /**
+     * Randomly pick tile from tile rack
+     * @param tileIndex - index of tile
+     * @return string - the tile that is picked
+     */
+    private String pickTilesRandomly(int tileIndex) {
+
+        // get tile
+        return this.tilesRack.getTiles(tileIndex);
+    }
 }
