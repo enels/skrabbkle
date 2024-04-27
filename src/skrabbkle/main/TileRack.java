@@ -122,7 +122,7 @@ public class TileRack extends TileBag {
     }
 
     /**
-     * Displays the tiles rack
+     * Displays the tiles rack on stdout
      */
     protected void viewTilesRack() {
 
