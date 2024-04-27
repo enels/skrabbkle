@@ -81,4 +81,13 @@ public class Board {
         // return board type
         return this.boardType;
     }
+
+    /**
+     * get the new word formed
+     * @return newly formed word
+     */
+    public String getNewWordFormed() {
+        // return new word formed
+        return this.newWord;
+    }
 }
