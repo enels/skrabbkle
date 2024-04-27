@@ -28,4 +28,12 @@ public class HumanPlayer extends Player{
         this.setScore();
 
     }
+
+    /**
+     * set human player score
+     */
+    private void setScore() {
+
+        this.score = 0;
+    }
 }
