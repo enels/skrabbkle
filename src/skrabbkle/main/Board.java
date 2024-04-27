@@ -64,4 +64,21 @@ public class Board {
         columnAlphabets.put('p', 15);
     }
 
+    /**
+     * Set the board type choosed by human player
+     * @param btype - an int to indicate the board type
+     */
+    public void setBoardType(int btype) {
+        // get the human choses board type
+        this.boardType = btype;
+    }
+
+    /**
+     * get board typed that was chosed
+     * @return the type of board: 0 - default board
+     */
+    private int getBoardType() {
+        // return board type
+        return this.boardType;
+    }
 }
