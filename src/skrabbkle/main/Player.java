@@ -27,4 +27,15 @@ public class Player extends Board{
 
         return true;
     }
+
+    /**
+     *
+     * @param word - the word played
+     * @param position - the position on board player placed the tile
+     */
+    private void printMove(String word, String position) {
+
+        // print out move played by player
+        System.out.println("The move is:\tword: " + word + " at position: " + position);
+    }
 }
