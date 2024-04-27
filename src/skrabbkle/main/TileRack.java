@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * The Tiles Rack Object Class
  */
-public class TileRack {
+public class TileRack extends TileBag {
 
     // create the tiles rack container
     private List<String> tilesRack = new ArrayList<String>();
@@ -17,5 +17,4 @@ public class TileRack {
 
     // number of tiles to collect
     private int numberOfTilesToReplace;
-
 }
