@@ -17,4 +17,22 @@ public class TileRack extends TileBag {
 
     // number of tiles to collect
     private int numberOfTilesToReplace;
+
+    /**
+     * Randomly populates the tiles rack at the start of the game
+     */
+    public TilesRack () {
+        // randomly populates the tiles rack
+        this.numberOfTilesToReplace = 7;
+        this.populateTilesRack();
+    }
+
+    /**
+     * Determines number of tiles to replace
+     * @param nTiles holds number of tiles to replace
+     */
+    protected void setNumberOfTilesToReplace(int nTiles) {
+        this.numberOfTilesToReplace = nTiles;
+    }
+
 }
