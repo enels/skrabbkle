@@ -209,4 +209,89 @@ public class Board {
 
         return 0;
     }
+
+    /** Checks if word exists in word list
+     *  @param word: the word played by human or computer
+     * @param direction: the direction for next word formation
+     *  return:        -1 - new word encrouching into other words
+     *                  1 - all is good - possibility of a new word
+     * */
+    private int movement(String word, int direction) {
+
+        Boolean wordToJoin = true;
+        int nextRow = 0, nextCol = 0;
+
+        // vertical movement
+        if (direction == 0) {
+            // checks for beginning/end of row
+            if (this.row == 0 || this.row == 15) {
+                nextRow = this.row;
+            }
+            else {
+                // checks if there's a character on the previous row
+                wordToJoin = Character.isAlphabetic(defaultBoard[this.row - 1][this.col].charAt(0));
+                nextRow = this.row + 1;
+            }
+
+        }
+        else {
+            // checks for beginning/end of column
+            if (this.col == 0 || this.col == 15) {
+                nextCol = this.col;
+            }
+            else {
+                // checks if there's a character on the previous column
+                wordToJoin = Character.isAlphabetic(defaultBoard[this.row][this.col - 1].charAt(0));
+                nextCol = this.col + 1;
+            }
+
+        }
+
+        // get length of word to put on board
+        int wordLength = word.length();
+
+        if (!wordToJoin) {
+
+            while ((wordLength != 0 || !wordToJoin) && newWord.length() <= 1 && nextRow < 16) {
+
+                if (direction == 0) {
+                    // if not at end of row
+                    if ( nextRow != 15 && this.col != 15) {
+                        wordToJoin = Character.isAlphabetic(defaultBoard[nextRow+1][this.col].charAt(0));
+                        wordLength--;
+                    }
+                    else {
+                        wordLength--;
+                    }
+                    // move to next row along the same column
+                    nextRow++;
+                } else {
+                    // if not at end of column
+                    if ( nextCol != 15 && this.row != 15 ) {
+                        wordToJoin = Character.isAlphabetic(defaultBoard[this.row][nextCol+1].charAt(0));
+                        wordLength--;
+                    }
+                    else {
+                        wordLength--;
+                    }
+                    // move to next row along the same row
+                    nextCol++;
+                }
+
+                // combine word with any possible alphabetic character seen on the way
+                if (wordToJoin && direction == 0) {
+
+                    this.newWord = word + defaultBoard[nextRow + 1][this.col];
+                } else if (wordToJoin && direction == 1) {
+                    this.newWord = word + defaultBoard[this.row][nextCol + 1];
+                }
+            }
+            // checks if it encrouches into another word
+            if (newWord.length() > 1) {
+                return -1;
+            }
+        }
+        // possibility of a new word to be formed
+        return 1;
+    }
 }
