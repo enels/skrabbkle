@@ -127,4 +127,14 @@ public class HumanPlayer extends Player{
         // meant for the game class itself - Skrabbkle
         return this.tilesAndPosition[0];
     }
+
+    /**
+     * View the human player tiles rack
+     */
+    public void viewTilesRack() {
+
+        tilesRack.viewTilesRack();
+
+        System.out.println();
+    }
 }
