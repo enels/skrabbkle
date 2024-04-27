@@ -193,4 +193,17 @@ public class ComputerPlayer extends Player {
         // get number of tiles to generate
         return rand.nextInt(upperBound);
     }
+
+    /**
+     * method that does actual the generation of tiles
+     */
+    protected void generateTiles() {
+        int totalTilesToGenerate = this.totalNumberOfTilesToGenerate();
+
+        for ( int tileIndex = 0; tileIndex < totalTilesToGenerate; tileIndex++ ) {
+
+            this.tilesPicked += this.pickTilesRandomly(tileIndex);
+
+        }
+    }
 }
