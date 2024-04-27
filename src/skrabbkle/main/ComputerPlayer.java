@@ -109,4 +109,38 @@ public class ComputerPlayer extends Player {
             this.position += randomAlphabet;
         }
     }
+
+    /**
+     * generate engine to generate the random tiles and position
+     */
+    private void generateTilesAndPosition() {
+
+        // randomly picks tiles from computer's tiles rack
+        this.generateTiles();
+
+        // generate position
+        this.generatePosition();
+
+        System.out.println("tiles picked: " + this.tilesPicked);
+        // store tiles and position
+
+        // extract only the characters from the word
+        this.extractCharactersFromTilesPicked(this.tilesPicked);
+        this.tilesAndPosition[0] = this.wordPlayed;
+        this.tilesAndPosition[1] = this.position;
+    }
+
+    /**
+     * extract character from tile picked
+     * @param tilesPicked all the tiles that make up the word
+     */
+    private void extractCharactersFromTilesPicked (String tilesPicked) {
+
+        for (int i = 0; i < this.tilesPicked.length(); i++ ) {
+
+            if ( Character.isAlphabetic(this.tilesPicked.charAt(i))) {
+                this.wordPlayed += this.tilesPicked.charAt(i);
+            }
+        }
+    }
 }
