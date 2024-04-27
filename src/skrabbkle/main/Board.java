@@ -154,4 +154,59 @@ public class Board {
 
         return true;
     }
+
+    /**
+     * places the tile on the position located on the board
+     * @param word - the word that is formed from the tiles
+     * @param boardPosition - the position choosen
+     * @return 1 if successful, 0 otherwise
+     */
+    protected int placeTilesOnPosition(String word, String boardPosition) {
+
+        // check position to make sure it is empty
+        Boolean positionIsFree = this.checkIfPositionIsFree(boardPosition);
+
+        // if position is free
+        if (positionIsFree) {
+            int wordStatus = this.movement(word, this.directionOfTiles);
+
+            // if all conditions are met and word found in dictionary
+            if ( wordStatus == 1 ) {
+                Boolean wordInWordList = checkWordInWordList();
+                // if word is in word list and movement direction is vertical
+                if ( wordInWordList ) {
+                    // new word formed
+                    // move vertically
+                    // get the position to end on the board
+                    int end = this.row + word.length();
+
+                    int charIndex = 0; // index of each character in word
+                    String strPositionValue; // string position on board
+                    for (int row = this.row; row < end; ++row ) {
+                        // string on position
+                        strPositionValue = defaultBoard[row][this.col];
+
+                        // check first character of current string in position
+                        if ( strPositionValue.charAt(0) == '{' || strPositionValue.charAt(0) == '(' ) { // score digit found
+                            // collect the character integer
+                            this.scoreMultiplier += Integer.parseInt(String.valueOf(strPositionValue.charAt(1)));
+                        }
+
+                        // put tile on board
+                        defaultBoard[row][this.col] = String.valueOf(word.charAt(charIndex));
+                        charIndex += 1;
+                    }
+
+                    // put tile on board
+                    defaultBoard[row][this.col] = String.valueOf(word.charAt(charIndex));
+                    charIndex += 1;
+                }
+                // finish putting all tiles in word on board
+                return 1;
+            }
+
+        }
+
+        return 0;
+    }
 }
