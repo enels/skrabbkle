@@ -13,4 +13,47 @@ public class TileBag {
     private ArrayList<String> tiles;
     private ArrayList<Integer> tileCount;
 
+    public TileBag() {
+
+        tileBag.put("[A1]", 8);
+        tileBag.put("[B3]", 2);
+        tileBag.put("[C3]", 2);
+        tileBag.put("[D2]", 4);
+        tileBag.put("[E1]", 10);
+        tileBag.put("[F4]", 3);
+        tileBag.put("[G2]", 4);
+        tileBag.put("[H4]", 3);
+        tileBag.put("[I1]", 8);
+        tileBag.put("[J9]", 1);
+        tileBag.put("[K6]", 1);
+        tileBag.put("[L1]", 4);
+        tileBag.put("[M3]", 2);
+        tileBag.put("[N1]", 7);
+        tileBag.put("[O1]", 7);
+        tileBag.put("[P3]", 2);
+        tileBag.put("[Q12]", 1);
+        tileBag.put("[R1]", 6);
+        tileBag.put("[S1]", 4);
+        tileBag.put("[T1]", 6);
+        tileBag.put("[U1]", 5);
+        tileBag.put("[V4]", 2);
+        tileBag.put("[W4]", 1);
+        tileBag.put("[X9]", 1);
+        tileBag.put("[Y5]", 2);
+        tileBag.put("[Z11]", 1);
+
+        // create a set of keys from the tiles
+        Set<String> keySet = tileBag.keySet();
+
+        // creating an arrayList of keys
+        tiles = new ArrayList<String>(keySet);
+
+        // Getting collections of values from the tile bag Tiles Count
+        Collection<Integer> values = tileBag.values();
+
+        // creating an array list of values
+        tileCount = new ArrayList<Integer>(values);
+
+    }
+
 }
