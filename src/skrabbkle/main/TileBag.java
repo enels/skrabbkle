@@ -94,4 +94,22 @@ public class TileBag {
 
         return "";
     }
+
+    /**
+     * Check if the tile to play is available on the tile rack
+     * @param tile the choosen tile
+     * @return true if available, false otherwise
+     */
+    private Boolean checkAvailability (String tile) {
+
+        // get number of tile available
+        int remainingTiles = tileBag.get(tile);
+
+        if ( remainingTiles != 0 ) {*
+            // reduce number of tiles
+            return true;
+        }
+
+        return false;
+    }
 }
