@@ -62,4 +62,36 @@ public class TileBag {
 
         return this.tileBag;
     }
+
+    /**
+     * Picks tile from tile bag
+     * @param tileIndexNumber
+     * @return the tile that was picked
+     */
+    protected String pickTileFromTilesBag (int tileIndexNumber) {
+
+        // get the actual tile
+        String tileChosen = tiles.get(tileIndexNumber);
+
+        // checks if the required tile is still available
+        Boolean isAvailable = checkAvailability(tileChosen);
+
+        // if tile is still available
+        if ( isAvailable ) {
+
+            // reduce the tileCount by one
+            this.tileCount.set(tileIndexNumber, tileBag.get(tileChosen) - 1);
+
+            // reduce the tile in the tileBag itself
+            reduceTilesByOne(tileChosen);
+
+            return tiles.get(tileIndexNumber);
+        }
+        else {
+            // delete tile from tile bag
+            tileBag.remove(tiles.get(tileIndexNumber));
+        }
+
+        return "";
+    }
 }
