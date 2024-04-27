@@ -94,4 +94,37 @@ public class HumanPlayer extends Player{
         }
 
     }
+
+    /**
+     * Play action
+     * @return the tiles that has been played
+     */
+    public String play() {
+
+        // prompt user to enter tiles and position
+        // continue asking player for word tiles  and position until word formed
+        // is found in wordlist
+        this.collectTilesAndPosition();
+        while ( !super.play(this.tilesAndPosition) ) {
+            System.out.println("Can't play in that position: ");
+            this.collectTilesAndPosition();
+        }
+
+        // remove played word tiles from tiles bag
+        // and at the same time, get the score of each tile removed/played
+        this.score += gameTileBag.removePlayedTilesFromTilesBag(this.tilesAndPosition[0]);
+
+        // remove tiles from tiles rack
+        tilesRack.removeTilesFromTilesRack(tilesAndPosition[0]);
+
+        // sets the number of tiles to populate the tiles rack with
+        this.tilesRack.setNumberOfTilesToReplace(tilesAndPosition[0].length());
+
+        // popualate back the tiles rack
+        tilesRack.populateTilesRack();
+
+        // for the printing of the most recently played word
+        // meant for the game class itself - Skrabbkle
+        return this.tilesAndPosition[0];
+    }
 }
