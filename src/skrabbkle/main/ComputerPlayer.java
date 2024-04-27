@@ -58,4 +58,13 @@ public class ComputerPlayer extends Player {
     public int getScore() {
         return this.score;
     }
+
+    /**
+     * create new tiles rack for player
+     */
+    private void setTilesRack () {
+
+        this.tilesRack = new TileRack();
+
+    }
 }
