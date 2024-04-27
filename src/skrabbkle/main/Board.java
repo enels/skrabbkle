@@ -90,4 +90,25 @@ public class Board {
         // return new word formed
         return this.newWord;
     }
+
+    /**
+     * Load the current state of the board with tiles on it
+     * @throws Exception - for entering wrong board type integer
+     */
+    public void loadBoard() throws Exception {
+
+        int boardType = this.getBoardType();
+
+        if (boardType == 0) {
+            this.loadDefaultBoard();
+        } else {
+            System.out.println("Chose which Board to load: ");
+            System.out.println("Board 1\nBoard 2\nBoard 3");
+        }
+
+        // catch the other board types
+        if (boardType != 0) {
+            System.out.println("Other boards are currently not available");
+        }
+    }
 }
