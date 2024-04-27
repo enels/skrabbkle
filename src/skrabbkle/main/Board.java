@@ -312,4 +312,68 @@ public class Board {
 
         return false;
     }
+
+    private void loadDefaultBoard() throws Exception {
+
+        // display default board from file
+        FileReader board_file = new FileReader(board_path);
+        BufferedReader br = new BufferedReader(board_file);
+
+        // display board
+        int i, col_num = -1, row_num = 0;
+        String s, coord_s = "";
+
+        // loop through the loaded board
+        while ((i = br.read()) != -1) {
+
+            s = String.valueOf((char) i);
+            // encounters new line
+            if (s.equals("\n")) {
+
+                // shift the character to the right if it's a "."
+                if (coord_s.length() == 1) {
+                    // shift it by 1 to the right
+                    coord_s = " " + coord_s;
+                }
+
+                defaultBoard[row_num][col_num + 1] = coord_s;
+                col_num = -1;
+                row_num += 1;
+                coord_s = "";
+            }
+            // still within a row(line)
+            else {
+                // maximum length of string on each coordinate reached
+                if (coord_s.length() == 3 && (s.equals("}") || s.equals(")"))) {
+                    ;
+                } else {
+                    coord_s += s;
+                }
+            }
+            // still within a row(line)
+            // but about to enter a new column position
+            if (s.equals(" ")) {
+                // enter next column
+                col_num += 1;
+
+                // checks the legnth of string at the current coordinate to see if it's
+                // just one
+                if (coord_s.length() == 2) {
+                    // shift it by 1 to the right
+                    coord_s = " " + coord_s;
+                }
+
+                // store the value in the row_coln index of the default board
+                defaultBoard[row_num][col_num] = coord_s;
+
+                // starts new string
+                coord_s = "";
+            }
+        }
+
+        this.printBoard();
+
+        br.close();
+        board_file.close();
+    }
 }
