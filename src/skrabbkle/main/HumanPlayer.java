@@ -36,4 +36,13 @@ public class HumanPlayer extends Player{
 
         this.score = 0;
     }
+
+    /**
+     * get human player score
+     * @return the score
+     */
+    public int getScore() {
+
+        return this.score;
+    }
 }
