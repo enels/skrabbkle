@@ -98,4 +98,12 @@ public class TileRack extends TileBag {
 
         return tilesRack.get(tileIndex);
     }
+
+    /**
+     * add tiles (possibly from tiles bag) to tiles rack
+     * @param tile the tile to add
+     */
+    protected void addToTilesRack(String tile) {
+        this.tilesRack.add(tile);
+    }
 }
