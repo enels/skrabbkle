@@ -294,4 +294,22 @@ public class Board {
         // possibility of a new word to be formed
         return 1;
     }
+
+    /**
+     * check if word exists in word list
+     * @return true if it exists, false otherwise
+     */
+    private Boolean checkWordInWordList () {
+
+        // if new word formed, check if it exists in dictionary (word list)
+        // iterate through the dictionary(word list) to see if the word exists
+        for (String w : wordList) {
+            // word found
+            if (w.equals(this.newWord)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
