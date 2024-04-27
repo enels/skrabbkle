@@ -106,4 +106,43 @@ public class TileRack extends TileBag {
     protected void addToTilesRack(String tile) {
         this.tilesRack.add(tile);
     }
+
+    /**
+     * Generate random index number
+     * @param upperBound the upper bound of the
+     * @return
+     */
+    protected int generateTileIndexNumber (int upperBound) {
+
+        // generates a random number between 0 and 16
+        Random rand = new Random();
+
+        // generate 7 random numbers to help get the 7 tiles
+        return rand.nextInt(upperBound);
+    }
+
+    /**
+     * Displays the tiles rack
+     */
+    protected void viewTilesRack() {
+
+        // display current tiles rack to human
+        // meant for the game class itself - Skrabbkle
+        for (int i = 0; i < this.tilesRack.size(); i++ ) {
+            if ( this.tilesRack.get(i) == null ) {
+                ;
+            }
+            else {
+                if ( i == this.tilesRack.size() - 1 ) {
+                    System.out.print(this.tilesRack.get(i));
+                }
+                else {
+                    System.out.print(this.tilesRack.get(i) + ", ");
+                }
+
+            }
+
+        }
+        System.out.println();
+    }
 }
