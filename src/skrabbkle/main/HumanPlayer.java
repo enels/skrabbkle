@@ -21,5 +21,11 @@ public class HumanPlayer extends Player{
     // player's score
     private int score;
 
+    public HumanPlayer(TileBag tileBag) throws Exception {
 
+        this.gameTileBag = tileBag;
+        this.setTilesRack();
+        this.setScore();
+
+    }
 }
