@@ -25,4 +25,22 @@ public class ComputerPlayer extends Player {
 
     // possible alphabets to choose from
     String [] alphabets;
+
+    /**
+     * Constructs the tiles bag and position of the
+     * @param tileBag
+     * @throws Exception
+     */
+    public ComputerPlayer(TileBag tileBag) throws Exception {
+
+//       store the game's tile bag
+        this.gameTileBag = tileBag;
+        this.tilesAndPosition = new String[8];
+        this.setTilesRack();
+
+        // all possible alphabets
+        this.alphabets = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"};
+
+        this.setScore();
+    }
 }
