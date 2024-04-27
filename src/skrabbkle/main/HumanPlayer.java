@@ -64,4 +64,15 @@ public class HumanPlayer extends Player{
         // seperate tiles and position
         this.tilesAndPosition = tilesPosition.split(",", 2);
     }
+
+    /**
+     * prompt human player for tiles and position
+     * @return the keyed in tiles and position
+     */
+    private String promptForTilesAndPosition() {
+
+        String tilesPosition = this.collectInput();
+
+        return tilesPosition;
+    }
 }
