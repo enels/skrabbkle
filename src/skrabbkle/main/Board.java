@@ -376,4 +376,37 @@ public class Board {
         br.close();
         board_file.close();
     }
+
+    public void printBoard() {
+
+        // store the right row number
+        int right_row_num;
+
+        // print line space before the board
+        System.out.println();
+
+        System.out.println("   a  b   c  d  e   f  g  h  i   j  k  l  m   n  o  p");
+        System.out.println();
+
+
+        for (int row = 0; row < 16; row++) {
+
+            // print the column row number on the left side
+            System.out.print(row + 1 + " ");
+
+            // print the Board tile value
+            for (int col = 0; col < 16; col++) {
+                System.out.print(defaultBoard[row][col]);
+            }
+
+            right_row_num = row + 1;
+            // print the column row number on the left side
+            System.out.print("\t\t" + right_row_num);
+
+            System.out.println();
+
+        }
+        System.out.println();
+        System.out.println("    a  b   c  d  e   f  g  h  i   j  k  l  m   n  o  p");
+    }
 }
