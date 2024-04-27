@@ -53,15 +53,13 @@ public class TileBag {
 
         // creating an array list of values
         tileCount = new ArrayList<Integer>(values);
-
-        /**
-         * get the tiles bag
-         */
-        protected Map<String, Integer> getTilesBag () {
-
-            return this.tileBag;
-        }
-
     }
 
+    /**
+     * get the tiles bag
+     */
+    protected Map<String, Integer> getTilesBag () {
+
+        return this.tileBag;
+    }
 }
