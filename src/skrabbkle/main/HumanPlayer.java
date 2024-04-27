@@ -9,7 +9,7 @@ import java.util.Map;
 public class HumanPlayer extends Player{
 
     //    create human's tiles rack
-    TilesRack tilesRack;
+    TileRack tilesRack;
     private TileBag gameTileBag;
 
     // word played by human
@@ -44,5 +44,12 @@ public class HumanPlayer extends Player{
     public int getScore() {
 
         return this.score;
+    }
+
+    /**
+     * create human player tile rack
+     */
+    private void setTilesRack() {
+        this.tilesRack = new TileRack();
     }
 }
