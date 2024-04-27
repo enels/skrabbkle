@@ -75,4 +75,23 @@ public class HumanPlayer extends Player{
 
         return tilesPosition;
     }
+
+    /**
+     * helps in collecting input
+     * @return
+     */
+    private String collectInput()  {
+
+        try {
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            String humanInput = br.readLine();
+
+            return humanInput;
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
