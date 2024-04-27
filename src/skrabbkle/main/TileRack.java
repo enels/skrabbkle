@@ -88,4 +88,14 @@ public class TileRack extends TileBag {
             this.addToTilesRack(tile);
         }
     }
+
+    /**
+     * collect the tile from the tiles rack
+     * @param tileIndex the index of the tile in the tiles rack
+     * @return the index number of the tiles location
+     */
+    protected String getTiles(int tileIndex) {
+
+        return tilesRack.get(tileIndex);
+    }
 }
