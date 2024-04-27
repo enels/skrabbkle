@@ -78,4 +78,35 @@ public class ComputerPlayer extends Player {
         // get tile
         return this.tilesRack.getTiles(tileIndex);
     }
+
+    /**
+     * Generate random position for computer player
+     */
+    public void generatePosition () {
+
+        Random rand = new Random();
+
+        // generate the random alphabet from a - p
+        int randIndex = rand.nextInt(16);
+
+        String randomAlphabet = this.alphabets[randIndex];
+
+        // generate random number
+        int randomNumber = rand.nextInt(16);
+
+        // generate random row and/or column for the number and alphabet
+        // e.g 8g, g2, h4
+
+        int row = rand.nextInt(2);
+        // set position
+        if ( row == 0 ) {
+
+            this.position = randomAlphabet;
+            this.position += String.valueOf(randomNumber);
+        }
+        else {
+            this.position = String.valueOf(randomNumber);
+            this.position += randomAlphabet;
+        }
+    }
 }
