@@ -177,4 +177,20 @@ public class ComputerPlayer extends Player {
 
         this.tilesRack.viewTilesRack();
     }
+
+    /**
+     * total number of tiles to generate
+     * @return randomly number generated that indicates number of tiles to generate
+     */
+    private int totalNumberOfTilesToGenerate() {
+
+        // upper bound
+        int upperBound = 8;
+
+        // pick a number of tiles to generate
+        Random rand = new Random();
+
+        // get number of tiles to generate
+        return rand.nextInt(upperBound);
+    }
 }
