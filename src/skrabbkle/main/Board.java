@@ -111,4 +111,47 @@ public class Board {
             System.out.println("Other boards are currently not available");
         }
     }
+
+    /**
+     * checks if current position choosen by computer or human player is free
+     * @param position - position choosen
+     * @return true if free, false otherwise
+     */
+    private Boolean checkIfPositionIsFree(String position) {
+
+        // checks the first character for either alphabet or fullstop
+        // collect the characters entered by human
+        char firstCharacter = position.charAt(0);
+        char secondCharacter = position.charAt(1);
+
+        // check if that position contains the beginning of any word on the board
+        // test for first character
+        if (Character.isAlphabetic(firstCharacter)) {
+            this.col = this.columnAlphabets.get(firstCharacter);
+
+            // set direction of tiles
+            this.directionOfTiles = 0; // vertical
+        } else if (firstCharacter >= '0' && firstCharacter <= '9') {
+            this.row = Integer.parseInt(String.valueOf(firstCharacter));
+
+            // set direction of tiles
+            this.directionOfTiles = 1; // horizontal
+        }
+
+        // test for second character
+        if (Character.isAlphabetic(secondCharacter)) {
+            this.col = this.columnAlphabets.get(secondCharacter);
+        } else if (secondCharacter >= '0' && secondCharacter <= '9') {
+            this.row = Integer.parseInt(String.valueOf(secondCharacter));
+        }
+
+        // check if position choosen by human or computer is free
+        if (Character.isAlphabetic(defaultBoard[row][col].charAt(0))) {
+
+            // start position is free
+            return false;
+        }
+
+        return true;
+    }
 }
