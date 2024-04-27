@@ -169,4 +169,12 @@ public class ComputerPlayer extends Player {
         // meant for the game class itself - Skrabbkle
         return this.tilesAndPosition[0];
     }
+
+    /**
+     * view computer player tile rack
+     */
+    public void viewTileRack() {
+
+        this.tilesRack.viewTilesRack();
+    }
 }
