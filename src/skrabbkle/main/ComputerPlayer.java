@@ -27,7 +27,7 @@ public class ComputerPlayer extends Player {
     String [] alphabets;
 
     /**
-     * Constructs the tiles bag and position of the
+     * Constructs the tiles bag and tile and position of the tile
      * @param tileBag
      * @throws Exception
      */
@@ -42,5 +42,20 @@ public class ComputerPlayer extends Player {
         this.alphabets = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"};
 
         this.setScore();
+    }
+
+    /**
+     * set computer player score
+     */
+    private void setScore() {
+        this.score = 0;
+    }
+
+    /**
+     * get computer player score
+     * @return the score
+     */
+    public int getScore() {
+        return this.score;
     }
 }
