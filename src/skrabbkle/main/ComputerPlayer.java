@@ -143,4 +143,30 @@ public class ComputerPlayer extends Player {
             }
         }
     }
+
+    public String play() {
+
+        this.generateTilesAndPosition();
+        // play
+        while ( !super.play(this.tilesAndPosition) ) {
+
+            this.generateTilesAndPosition();
+        }
+
+        // remove played word tiles from tiles bag
+        this.score += gameTileBag.removePlayedTilesFromTilesBag(this.tilesAndPosition[0]);
+
+        // remove tiles from tiles rack
+        tilesRack.removeTilesFromTilesRack(tilesAndPosition[0]);
+
+        // sets the number of tiles to populate the tiles rack with
+        this.tilesRack.setNumberOfTilesToReplace(tilesAndPosition[0].length());
+
+        // popualate back the tiles rack
+        tilesRack.populateTilesRack();
+
+        // for the printing of the most recently played word
+        // meant for the game class itself - Skrabbkle
+        return this.tilesAndPosition[0];
+    }
 }
