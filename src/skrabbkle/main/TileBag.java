@@ -112,4 +112,12 @@ public class TileBag {
 
         return false;
     }
+
+    /**
+     * count number of tiles reamining in tiles bag
+     * @return
+     */
+    public int countTilesInTilesBag(){
+        return tiles.size();
+    }
 }
