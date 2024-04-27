@@ -52,4 +52,16 @@ public class HumanPlayer extends Player{
     private void setTilesRack() {
         this.tilesRack = new TileRack();
     }
+
+    /**
+     * collect tiles and position keyed in by human player
+     */
+    private void collectTilesAndPosition () {
+
+        // ask human player to key in his/her tiles and the position on the board to put it
+        String tilesPosition = this.promptForTilesAndPosition();
+
+        // seperate tiles and position
+        this.tilesAndPosition = tilesPosition.split(",", 2);
+    }
 }
