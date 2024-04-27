@@ -37,4 +37,31 @@ public class Board {
     // board path
     String board_path = "resources/defaultBoard.txt";
 
+    public Board() throws Exception {
+
+        // load the default board when game starts
+        this.loadBoard();
+
+        //store words in word list in an array list
+        this.storeWordListInArray();
+
+        // initialize the column alphabet
+        columnAlphabets.put('a', 0);
+        columnAlphabets.put('b', 1);
+        columnAlphabets.put('c', 2);
+        columnAlphabets.put('d', 3);
+        columnAlphabets.put('e', 4);
+        columnAlphabets.put('f', 5);
+        columnAlphabets.put('g', 6);
+        columnAlphabets.put('h', 7);
+        columnAlphabets.put('i', 8);
+        columnAlphabets.put('j', 9);
+        columnAlphabets.put('k', 10);
+        columnAlphabets.put('l', 11);
+        columnAlphabets.put('m', 12);
+        columnAlphabets.put('n', 13);
+        columnAlphabets.put('o', 14);
+        columnAlphabets.put('p', 15);
+    }
+
 }
